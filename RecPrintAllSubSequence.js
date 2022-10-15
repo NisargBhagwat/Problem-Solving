@@ -1,19 +1,20 @@
-const arr = [3, 2, 1];
-const length = arr.length;
-
-function subSequece(index, tempArr) {
-
-  if (index >= length) {
-    console.log(tempArr);
+function subSequece(index, arr, candidates) {
+  if (index >= candidates.length) {
+    console.log(arr);
     return;
   }
 
-  tempArr.push(arr[index]);
-  subSequece(index + 1, tempArr);
-  tempArr.pop();
-  subSequece(index + 1, tempArr);
+  const indexValue = candidates[index];
+  const nextIndex = index + 1;
+
+  arr.push(indexValue);
+  subSequece(nextIndex, arr, candidates);
+
+  arr.pop();
+  subSequece(nextIndex, arr, candidates);
 }
 
-subSequece(0, [], 0);
+const candidates = [1, 2, 3];
+let tempArr = [];
 
-// T.c = O(n*2^n)
+subSequece(0, tempArr, candidates);

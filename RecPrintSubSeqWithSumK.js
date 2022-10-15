@@ -1,28 +1,27 @@
 // Pointing Subsequence with sum is k
 
-const arr = [1, 2, 1, 0];
-const length = arr.length;
-const k = 2;
-
-function subSequece(index, tempArr, sum) {
-  if (index >= length) {
-    if (sum == k) {
-      console.log(tempArr);
-      return;
+function subSequece(index, arr, candidates, target) {
+  if (index >= candidates.length) {
+    if (target == 0) {
+      console.log(arr);
     }
     return;
   }
 
-  tempArr.push(arr[index]);
-  sum += arr[index];
+  const indexValue = candidates[index];
+  const nextIndex = index + 1;
 
-  subSequece(index + 1, tempArr, sum);
-  sum -= arr[index];
+  arr.push(indexValue);
+  subSequece(nextIndex, arr, candidates, target - indexValue);
 
-  tempArr.pop();
-  subSequece(index + 1, tempArr, sum);
+  arr.pop();
+  subSequece(nextIndex, arr, candidates, target);
 }
 
-subSequece(0, [], 0);
+const candidates = [1, 2, 3];
+let tempArr = [];
+const target = 3;
+
+subSequece(0, tempArr, candidates, target);
 
 // T.c = O(n*2^n)

@@ -39,13 +39,16 @@ function subSequece(index, tempArr, candidates, sum, ans) {
     return;
   }
 
-  if (candidates[index] <= sum) {
-    tempArr.push(candidates[index]);
-    subSequece(index, tempArr, candidates, sum - candidates[index], ans);
+  const indexValue = candidates[index];
+  const nextIndex = index + 1;
+
+  if (indexValue <= sum) {
+    tempArr.push(indexValue);
+    subSequece(index, tempArr, candidates, sum - indexValue, ans);
     tempArr.pop();
   }
 
-  subSequece(index + 1, tempArr, candidates, sum, ans);
+  subSequece(nextIndex, tempArr, candidates, sum, ans);
 }
 
 var combinationSum = function (candidates, target) {
