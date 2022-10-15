@@ -1,7 +1,6 @@
 const arr = [50, 60, 70, 80, 10, 20, 55, 90, 100, 150];
 
 function merge(arr1, arr2, inversion) {
-  console.log(inversion);
   let temp = [];
   let k = 0;
   let i = 0;
@@ -13,7 +12,7 @@ function merge(arr1, arr2, inversion) {
         i++;
       } else {
         temp[k] = arr2[j];
-        inversion += arr1.length - i ;
+        inversion += arr1.length - i;
         j++;
       }
     } else {
