@@ -1,3 +1,5 @@
+// print sum of all subset set of array in ascending order
+
 function subSequece(index, arr, candidates, sum, ans) {
     if (index >= candidates.length) {
         ans.push(sum);
