@@ -22,11 +22,10 @@
 // -10 <= nums[i] <= 10
 // All the integers of nums are unique.
 
-function permutes(index, nums, arr, ans, track) {
+function permutes( nums, arr, ans, track) {
     const numsLength = nums.length;
 
     if (arr.length == numsLength) {
-        console.log(arr);
         ans.push([...arr]);
         return;
     }
@@ -38,10 +37,10 @@ function permutes(index, nums, arr, ans, track) {
             arr.push(nums[i]);
             track[i] = true;
 
-            permutes(i + 1, nums, arr, ans, track);
+            permutes( nums, arr, ans, track);
 
-            track[i] = false;
             arr.pop();
+            track[i] = false;
         }
     }
 
@@ -54,7 +53,7 @@ var permute = function (nums) {
     let arr = [];
     let ans = [];
 
-    permutes(0, nums, arr, ans, track);
+    permutes(nums, arr, ans, track);
 };
 
 permute([1, 2, 3]);
