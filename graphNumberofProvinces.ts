@@ -64,3 +64,7 @@ function findCircleNum(isConnected: number[][]): number {
 
 console.log(findCircleNum([[1, 0, 0], [0, 1, 0], [0, 0, 1]]));
 
+// complexity analysish
+
+// TC= O(v + 2E);
+// SC = O(v);
