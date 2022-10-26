@@ -69,4 +69,4 @@ function solveNQueens(n: number): string[][] {
     return ans;
 };
 
-console.log(solveNQueens(4));
+console.log(solveNQueens(7));

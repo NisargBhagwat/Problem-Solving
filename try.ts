@@ -1,8 +1,2 @@
-let a: string = "abc";
-
-
-console.log(a);
-
-a += "d"
-
-console.log(a);
+let a: Array<[number, number]> = Array(5).fill(Array(2).fill(null, 0, 2));
+console.log(a[0][1]);
