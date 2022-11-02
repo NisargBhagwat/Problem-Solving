@@ -27,6 +27,7 @@ function permutes( nums, arr, ans, track) {
 
     if (arr.length == numsLength) {
         ans.push([...arr]);
+        console.log(arr);
         return;
     }
 
