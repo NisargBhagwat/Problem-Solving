@@ -1,2 +1,5 @@
-let a: Array<[number, number]> = Array(5).fill(Array(2).fill(null, 0, 2));
-console.log(a[0][1]);
+const abc: Number[] = [1, 2, 3, 4];
+for (let i of abc) {
+    // code block to be executed
+    console.log(i);
+}

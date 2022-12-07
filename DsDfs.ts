@@ -11,11 +11,11 @@ function dfsOfGraph(v: number, adj: number[][], node: number, visited: boolean[]
 
 const n = 6
 const edge: Array<[number, number]> = [[5, 4], [0, 1], [0, 2], [0, 3], [2, 4]]
-const adjacent: number[][] = Array.from(Array(v), () => Array().fill([]));
+const adjacent: number[][] = Array.from(Array(n), () => Array().fill([]));
 
-edges.forEach((edge: [number, number]) => {
-    adj[edge[0]].push(edge[1]);
-    adj[edge[1]].push(edge[0]);
+edge.forEach((edge: [number, number]) => {
+    adjacent[edge[0]].push(edge[1]);
+    adjacent[edge[1]].push(edge[0]);
 });
 
 let visited: boolean[] = Array(n).fill(false);
