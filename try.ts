@@ -1,5 +1,3 @@
-const abc: Number[] = [1, 2, 3, 4];
-for (let i of abc) {
-    // code block to be executed
-    console.log(i);
-}
+let i = 0;
+let j = i - 1;
+console.log(j);
