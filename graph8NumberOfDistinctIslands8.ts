@@ -1,9 +1,9 @@
 // https://leetcode.com/problems/number-of-distinct-islands/
 export { }
 
-function dfs(row: number, column: number, grid: number[][], visited: boolean[][], distinct: number[], row0: number, col0: number) {
+function dfs(row: number, column: number, grid: number[][], visited: boolean[][], vector: number[], row0: number, col0: number) {
     visited[row][column] = true;
-    distinct.push(row - row0, column - col0);
+    vector.push(row - row0, column - col0);
     const rows = [0, -1, 0, 1];
     const cols = [-1, 0, 1, 0];
     for (let i = 0; i < 4; i++) {
@@ -11,7 +11,7 @@ function dfs(row: number, column: number, grid: number[][], visited: boolean[][]
         let ncol = column + cols[i];
 
         if (grid[nrow] && grid[nrow][ncol] === 1 && !visited[nrow][ncol]) {
-            dfs(nrow, ncol, grid, visited, distinct, row0, col0);
+            dfs(nrow, ncol, grid, visited, vector, row0, col0);
         }
     }
 }
