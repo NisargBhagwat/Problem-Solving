@@ -33,4 +33,4 @@ function permuteUnique(nums: number[]): number[][] {
     return permutations;
 };
 
-console.log(permuteUnique([3, 3, 0, 3]));
+console.log(permuteUnique([1, 2, 3]));
