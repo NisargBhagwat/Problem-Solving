@@ -1,11 +1,11 @@
 // https://leetcode.com/problems/word-search/
 export { }
 
-function letsCheck(board: string[][], word: string, row: number, col: number, index: number, visited: boolean[][]): boolean {
+function letsCheck(board: string[][], word: string, row: number, col: number, index: number): boolean {
     if (index >= word.length) {
         return true;
     }
-    
+
     const rows = [0, -1, 0, 1];
     const cols = [-1, 0, 1, 0];
 
@@ -16,14 +16,14 @@ function letsCheck(board: string[][], word: string, row: number, col: number, in
         if (
             board[nrow] &&
             board[nrow][ncol] &&
-            !visited[nrow][ncol] &&
+            board[nrow][ncol] != "*" &&
             board[nrow][ncol] == word[index]) {
 
-            visited[nrow][ncol] = true;
-            if (letsCheck(board, word, nrow, ncol, index + 1, visited)) {
+            board[nrow][ncol] = "*";
+            if (letsCheck(board, word, nrow, ncol, index + 1)) {
                 return true
             }
-            visited[nrow][ncol] = false;
+            board[nrow][ncol] = word[0];
         }
     }
 
@@ -38,11 +38,11 @@ function exist(board: string[][], word: string): boolean {
     for (let i = 0; i < rowLength; i++) {
         for (let j = 0; j < colLength; j++) {
             if (board[i][j] == word[0]) {
-                visited[i][j] = true;
-                if (letsCheck(board, word, i, j, 1, visited)) {
+                board[i][j] = "*";
+                if (letsCheck(board, word, i, j, 1)) {
                     return true
                 }
-                visited[i][j] = false;
+                board[i][j] = word[0];
             }
         }
     }
